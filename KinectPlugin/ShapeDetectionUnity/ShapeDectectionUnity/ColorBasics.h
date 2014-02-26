@@ -39,6 +39,8 @@ public:
 
 	int						maxRadius;
 
+	int						threshhold;
+
     // Current Kinect
     INuiSensor*             m_pNuiSensor;
 

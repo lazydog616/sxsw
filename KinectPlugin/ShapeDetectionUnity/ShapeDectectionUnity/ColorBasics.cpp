@@ -364,7 +364,7 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	blur( src_bw, src_bw, Size(3,3) );
 
 	///// Detect edges using Threshold
-	threshold( src_bw, threshold_output, thresh, 255, THRESH_BINARY );
+	threshold( src_bw, threshold_output, threshhold, 255, THRESH_BINARY );
 	
 	///// Find contours
 	findContours( threshold_output, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0) );
