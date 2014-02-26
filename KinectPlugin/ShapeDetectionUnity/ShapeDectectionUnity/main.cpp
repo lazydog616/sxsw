@@ -14,7 +14,7 @@ int main()
 			float* x = new float[1000];
 			float* y = new float[1000];
 			int num = 0;
-			colorKinect.ShapeBoundingbox(x, y, num);
+			//colorKinect.ShapeBoundingbox(x, y, num);
 	//		break;
 	//	}
 	//	//colorKinect.ProcessColor();

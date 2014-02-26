@@ -19,19 +19,24 @@ extern "C"
 	} box;
 
 	static CColorBasics colorKinect;
-	void EXPORT_API detectShape(int maxRadius, float* objPosX, float* objPosY)
+	int EXPORT_API detectShape(int maxRadius, float* objPosX, float* objPosY, float* objHeight, float* objWidth)
 	{
 		colorKinect.maxRadius = maxRadius;
 		colorKinect.CreateFirstConnected();
 		int shapeNum = 0;
+		
 		while(1){
 			Sleep(100);
 			if ( WAIT_OBJECT_0 == WaitForSingleObject(colorKinect.m_hNextColorFrameEvent, 0) )
 			{
 				colorKinect.ProcessColor();
-				colorKinect.ShapeBoundingbox(objPosX, objPosY, shapeNum);
+				colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum);
 				break;
 			}
-		}	
+		}
+
+		//shapeNum = 10;
+
+		return shapeNum;
 	}
 }

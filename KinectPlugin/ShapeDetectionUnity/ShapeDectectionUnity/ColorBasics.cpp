@@ -346,7 +346,7 @@ void CColorBasics::ProcessColorDepth()
 }
 
 RNG rng(12345);
-void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, int& shapeNum)
+void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum)
 {
 	int thresh = 80;
 	int max_thresh = 255;
@@ -392,7 +392,10 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, int& shapeNu
 		if(radius[i] > maxRadius){			
 			objPosX[shapeNum] = center[i].x;
 			objPosY[shapeNum] = center[i].y;
+			objHeight[shapeNum] = boundRect[i].height;
+			objWidth[shapeNum] = boundRect[i].width;
 			shapeNum++;
+
 			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
 			drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
 			rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
