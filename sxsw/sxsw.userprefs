@@ -1,0 +1,20 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelSetup.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Global.cs" Line="39" Column="3" />
+      <File FileName="Assets\Scripts\gobalScript.cs" Line="8" Column="1" />
+      <File FileName="..\sxsw-master\sxsw-master\Assets\Source\GameState.cs" Line="1" Column="1" />
+      <File FileName="..\sxsw-master\sxsw-master\Assets\Source\Destination.cs" Line="1" Column="1" />
+      <File FileName="..\sxsw-master\sxsw-master\Assets\Source\Constants.cs" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\LevelSetup.cs" Line="27" Column="31" />
+      <File FileName="Assets\Scripts\Collisitions.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ResultGlobal.cs" Line="8" Column="48" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
