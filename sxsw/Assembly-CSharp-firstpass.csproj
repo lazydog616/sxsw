@@ -46,9 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Pro Standard Assets\Image Based\ImageEffectBase.cs" />
-     <Compile Include="Assets\Pro Standard Assets\Image Based\ImageEffects.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Pro Standard Assets\Image Based\ImageEffectBase.cs" />
+     <Compile Include="Assets\Standard Assets\Pro Standard Assets\Image Based\ImageEffects.cs" />
      <Compile Include="Assets\Standard Assets\Water (Pro Only)\Sources\Scripts\Water.cs" />
      <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\Displace.cs" />
      <Compile Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Scripts\GerstnerDisplace.cs" />
