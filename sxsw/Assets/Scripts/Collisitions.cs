@@ -8,6 +8,7 @@ public class Collisitions : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PlayerPrefs.SetString ("result", "lose");
+		positionori = gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
