@@ -48,10 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Collisitions.cs" />
      <Compile Include="Assets\Scripts\Global.cs" />
-     <Compile Include="Assets\Scripts\JoystickTester.cs" />
      <Compile Include="Assets\Scripts\LevelSetup.cs" />
      <Compile Include="Assets\Scripts\ResultGlobal.cs" />
-     <Compile Include="Assets\Scripts\gobalScript.cs" />
+     <Compile Include="Assets\Scripts\sliding.cs" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Water4\Sources\Shaders\FX-SimpleWater4.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
