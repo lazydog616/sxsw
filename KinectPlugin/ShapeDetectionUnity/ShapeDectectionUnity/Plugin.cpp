@@ -19,9 +19,11 @@ extern "C"
 	} box;
 
 	static CColorBasics colorKinect;
-	int EXPORT_API detectShape(float maxRadius, int threshold, float* objPosX, float* objPosY, float* objHeight, float* objWidth)
+	int EXPORT_API detectShape(float minRadius, float maxRadius, int threshold, 
+		float* objPosX, float* objPosY, float* objHeight, float* objWidth)
 	{
 		colorKinect.maxRadius = maxRadius;
+		colorKinect.minRadius = minRadius;
 		colorKinect.threshhold = threshold;
 		colorKinect.CreateFirstConnected();
 		int shapeNum = 0;

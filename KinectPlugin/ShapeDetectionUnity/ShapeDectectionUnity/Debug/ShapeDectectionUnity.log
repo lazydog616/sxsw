@@ -1,0 +1,31 @@
+﻿Build started 2/25/2014 12:33:01 PM.
+     1>Project "D:\PGS\core\Kinect\ShapeDectectionUnity\ShapeDectectionUnity\ShapeDectectionUnity.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\ShapeDetectionUnity.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ID:\openCV\opencv\build\x86\vc11\..\..\include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ColorBasics.cpp main.cpp Plugin.cpp
+         Plugin.cpp
+         main.cpp
+         ColorBasics.cpp
+     1>d:\pgs\core\kinect\shapedectectionunity\shapedectectionunity\colorbasics.cpp(205): warning C4101: 'iplimg' : unreferenced local variable
+     1>d:\pgs\core\kinect\shapedectectionunity\shapedectectionunity\colorbasics.cpp(317): warning C4102: 'ReleaseFrame' : unreferenced label
+     1>d:\pgs\core\kinect\shapedectectionunity\shapedectectionunity\colorbasics.cpp(339): warning C4309: '=' : truncation of constant value
+     1>d:\pgs\core\kinect\shapedectectionunity\shapedectectionunity\colorbasics.cpp(381): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\pgs\core\kinect\shapedectectionunity\shapedectectionunity\colorbasics.cpp(395): warning C4018: '<' : signed/unsigned mismatch
+         Generating Code...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\openCV\opencv\build\x86\vc11\lib opencv_core248d.lib opencv_imgproc248d.lib opencv_highgui248d.lib kernel32.lib user32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Kinect10.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.lib" /MACHINE:X86 Debug\ColorBasics.obj
+         Debug\main.obj
+         Debug\Plugin.obj
+         LINK : D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.exe not found or not built by the last incremental link; performing full link
+            Creating library D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.lib and object D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.exp
+         ShapeDectectionUnity.vcxproj -> D:\PGS\core\Kinect\ShapeDectectionUnity\Debug\ShapeDetectionUnity.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\ShapeDetectionUnity.unsuccessfulbuild".
+         Touching "Debug\ShapeDetectionUnity.lastbuildstate".
+     1>Done Building Project "D:\PGS\core\Kinect\ShapeDectectionUnity\ShapeDectectionUnity\ShapeDectectionUnity.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:11.07

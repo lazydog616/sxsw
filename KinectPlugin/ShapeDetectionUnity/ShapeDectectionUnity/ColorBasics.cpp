@@ -389,7 +389,7 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	Mat drawing = Mat::zeros( threshold_output.size(), CV_8UC3 );
 	for( int i = 0; i< contours.size(); i++ )
 	{
-		if(radius[i] > maxRadius){			
+		if(radius[i] > minRadius && radius[i] < maxRadius){			
 			objPosX[shapeNum] = center[i].x;
 			objPosY[shapeNum] = center[i].y;
 			objHeight[shapeNum] = boundRect[i].height;

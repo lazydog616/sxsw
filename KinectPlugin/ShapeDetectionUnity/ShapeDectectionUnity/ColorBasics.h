@@ -39,6 +39,8 @@ public:
 
 	int						maxRadius;
 
+	int						minRadius;
+
 	int						threshhold;
 
     // Current Kinect
