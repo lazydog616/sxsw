@@ -84,5 +84,5 @@ public:
 
 	void					ProcessColorDepth();
 
-	void					ShapeBoundingbox(float*, float*, float*, float*, int&);
+	void					ShapeBoundingbox(float*, float*, float*, float*, int&, float*);
 };
