@@ -36,7 +36,7 @@ var inAirControlAcceleration = 3.0;
 
 // How high do we jump when pressing jump and letting go immediately
 var jumpHeight = 3.0;//0.5;
-
+var spring_up_vertical_speed = 100.0f;
 // The gravity for the character
 var gravity = 20.0;
 // The gravity in controlled descent mode
@@ -250,6 +250,13 @@ function ApplyJumping ()
 	}
 }
 
+function OnTriggerEnter(other : Collider){
+	
+	if(other.gameObject.tag == "spring"){
+		Debug.Log("Collision with spring");
+		verticalSpeed = spring_up_vertical_speed;
+	}
+}
 
 function ApplyGravity ()
 {
