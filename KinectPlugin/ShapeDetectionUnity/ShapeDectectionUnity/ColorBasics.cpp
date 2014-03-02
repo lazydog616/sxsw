@@ -346,9 +346,9 @@ void CColorBasics::ProcessColorDepth()
 }
 
 RNG rng(12345);
-void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum)
+void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum, float* boundingBox)
 {
-	int thresh = 80;
+	//int thresh = 80;
 	int max_thresh = 255;
 
 	Mat threshold_output;
@@ -358,10 +358,10 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	//Mat src_bw(img);
 	Mat src_bw;
 	Mat src(img); //= imread( "./1.png", 1 );
-
+	
 	/// Convert image to gray and blur it
 	cvtColor( src, src_bw, COLOR_BGR2GRAY );
-	blur( src_bw, src_bw, Size(3,3) );
+	blur( src_bw, src_bw, Size(2,2) );
 
 	///// Detect edges using Threshold
 	threshold( src_bw, threshold_output, threshhold, 255, THRESH_BINARY );
@@ -375,6 +375,7 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	vector<Point2f>center( contours.size() );
 	vector<float>radius( contours.size() );
 
+
 	 for( int i = 0; i < contours.size(); i++ )
      {
 		 if(contours[i].size() != 0){
@@ -387,13 +388,28 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	
 	 /// Draw polygonal contour + bonding rects + circles
 	Mat drawing = Mat::zeros( threshold_output.size(), CV_8UC3 );
+	bool findBoundingbox = false;
 	for( int i = 0; i< contours.size(); i++ )
 	{
-		if(radius[i] > maxRadius){			
+		if(radius[i] > 190)
+		{
+			findBoundingbox = true;
+			boundingBox[0] = boundRect[i].tl().x;
+			boundingBox[1] = boundRect[i].tl().y;
+
+			boundingBox[2] = boundRect[i].br().x;
+			boundingBox[3] = boundRect[i].br().y;
+		}
+
+
+		if(radius[i] > minRadius && radius[i] < maxRadius){			
 			objPosX[shapeNum] = center[i].x;
 			objPosY[shapeNum] = center[i].y;
 			objHeight[shapeNum] = boundRect[i].height;
 			objWidth[shapeNum] = boundRect[i].width;
+
+			//int colorIndex = center[i].x * img->width + center[i].y;
+			//img[colorIndex] = 20;
 			shapeNum++;
 
 			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );

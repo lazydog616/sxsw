@@ -39,6 +39,8 @@ public:
 
 	int						maxRadius;
 
+	int						minRadius;
+
 	int						threshhold;
 
     // Current Kinect
@@ -82,5 +84,5 @@ public:
 
 	void					ProcessColorDepth();
 
-	void					ShapeBoundingbox(float*, float*, float*, float*, int&);
+	void					ShapeBoundingbox(float*, float*, float*, float*, int&, float*);
 };

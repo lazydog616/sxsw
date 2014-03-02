@@ -10,18 +10,12 @@
 
 extern "C"
 {
-	typedef struct
-	{
-		float tlx;
-		float tly;
-		float brx;
-		float bry;
-	} box;
-
 	static CColorBasics colorKinect;
-	int EXPORT_API detectShape(float maxRadius, int threshold, float* objPosX, float* objPosY, float* objHeight, float* objWidth)
+	int EXPORT_API detectShape(float minRadius, float maxRadius, int threshold, 
+		float* objPosX, float* objPosY, float* objHeight, float* objWidth, float* boundingBox)
 	{
 		colorKinect.maxRadius = maxRadius;
+		colorKinect.minRadius = minRadius;
 		colorKinect.threshhold = threshold;
 		colorKinect.CreateFirstConnected();
 		int shapeNum = 0;
@@ -31,7 +25,7 @@ extern "C"
 			if ( WAIT_OBJECT_0 == WaitForSingleObject(colorKinect.m_hNextColorFrameEvent, 0) )
 			{
 				colorKinect.ProcessColor();
-				colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum);
+				colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum, boundingBox);
 				break;
 			}
 		}
