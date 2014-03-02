@@ -1,0 +1,21 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1140]
+    Renderer: ATI Mobility Radeon HD 5870
+    Vendor:   ATI
+    VRAM:     2005 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading E:\Documents\GitHub\sxsw\sxsw\test_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+- Completed reload, in  0.056 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1200 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
