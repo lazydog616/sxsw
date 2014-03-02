@@ -20,7 +20,7 @@ public class sliding : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		print (movingAtoB);
+		//print (movingAtoB);
 		Vector3 currentPosition = Vector3.Lerp(positionA, positionB, movingAtoB ? periodTimer / period : (1 - periodTimer / period));
 		transform.position = currentPosition;
 
