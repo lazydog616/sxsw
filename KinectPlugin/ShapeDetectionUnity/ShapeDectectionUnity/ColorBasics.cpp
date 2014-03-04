@@ -412,7 +412,21 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 			//img[colorIndex] = 20;
 			shapeNum++;
 
-			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+			//Find the color of the polygon(currently only bounding box) created by the contour
+			Mat img_roi = Mat(src, boundRect[i]);
+			Scalar avgPixelIntensity = mean(img_roi);
+			Scalar color = avgPixelIntensity;
+			//Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+
+			//Potentially a more accurate way - find the average hue
+			Mat img_hsv;
+			//convert from rgb to hsv
+			cvtColor(img_roi, img_hsv, CV_BGR2HSV);
+			Mat channels[3];
+			//split into channels of h, s, v
+			split(img_hsv, channels);
+			Scalar avghue = mean(channels[0]);
+
 			drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
 			rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
 			circle( drawing, center[i], (int)radius[i], color, 2, 8, 0 );
