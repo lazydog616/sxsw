@@ -10,6 +10,8 @@
 //#include "resource.h"
 #include "NuiApi.h"
 
+#define EXE
+
 //#define DEPTHDISPLAY
 /// Function header
 

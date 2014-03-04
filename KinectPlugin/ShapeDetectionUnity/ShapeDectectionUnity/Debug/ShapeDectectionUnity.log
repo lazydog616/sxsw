@@ -1,21 +1,28 @@
-﻿Build started 2/28/2014 3:32:40 PM.
+﻿Build started 3/4/2014 1:33:47 AM.
      1>Project "D:\PGS\core\Git\sxsw\KinectPlugin\ShapeDetectionUnity\ShapeDectectionUnity\ShapeDectectionUnity.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\ShapeDetectionUnity.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\openCV\opencv\build\x86\vc11\..\..\include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ColorBasics.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ID:\openCV\opencv\build\x86\vc11\..\..\include /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ColorBasics.cpp Plugin.cpp main.cpp
+         main.cpp
+         Generating Code...
+         Compiling...
+         Plugin.cpp
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\plugin.cpp(17): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\plugin.cpp(18): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
          ColorBasics.cpp
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(205): warning C4101: 'iplimg' : unreferenced local variable
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(317): warning C4102: 'ReleaseFrame' : unreferenced label
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(339): warning C4309: '=' : truncation of constant value
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(379): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(392): warning C4018: '<' : signed/unsigned mismatch
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(397): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(204): warning C4101: 'iplimg' : unreferenced local variable
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(318): warning C4102: 'ReleaseFrame' : unreferenced label
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(340): warning C4309: '=' : truncation of constant value
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(380): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(393): warning C4018: '<' : signed/unsigned mismatch
      1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(398): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(400): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(399): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(401): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(408): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(402): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(409): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\pgs\core\git\sxsw\kinectplugin\shapedetectionunity\shapedectectionunity\colorbasics.cpp(410): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\PGS\core\Git\sxsw\KinectPlugin\ShapeDetectionUnity\Debug\ShapeDetectionUnity.exe" /NOLOGO /LIBPATH:D:\openCV\opencv\build\x86\vc11\lib opencv_core248d.lib opencv_imgproc248d.lib opencv_highgui248d.lib kernel32.lib user32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib Kinect10.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\ShapeDetectionUnity.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\PGS\core\Git\sxsw\KinectPlugin\ShapeDetectionUnity\Debug\ShapeDetectionUnity.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\PGS\core\Git\sxsw\KinectPlugin\ShapeDetectionUnity\Debug\ShapeDetectionUnity.lib" /MACHINE:X86 Debug\ColorBasics.obj
          Debug\main.obj
@@ -32,4 +39,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.05
+Time Elapsed 00:00:07.39

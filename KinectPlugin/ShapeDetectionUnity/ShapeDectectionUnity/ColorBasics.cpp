@@ -181,10 +181,9 @@ void CColorBasics::ProcessColor()
 
     // Attempt to get the color frame
     hr = m_pNuiSensor->NuiImageStreamGetNextFrame(m_pColorStreamHandle, 0, &imageFrame);
-    while (FAILED(hr))
-    {
-		hr = m_pNuiSensor->NuiImageStreamGetNextFrame(m_pColorStreamHandle, 0, &imageFrame);
-        //return;
+    if(FAILED(hr))
+    {		
+        return;
     }
 
 	INuiFrameTexture * pTexture = imageFrame.pFrameTexture;
@@ -215,7 +214,9 @@ void CColorBasics::ProcessColor()
 
 		namedWindow( "Color", CV_WINDOW_AUTOSIZE );
 		imshow( "Color", m);
-
+#ifdef EXE
+		if( waitKey (30) >= 0) return;
+#endif
         // Draw the data with Direct2D
 		//#ifndef DEPTHDISPLAY
 		//        m_pDrawColor->Draw(static_cast<BYTE *>(LockedRect.pBits), LockedRect.size);
@@ -436,6 +437,9 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	//Show in a window
 	namedWindow( "Contours", CV_WINDOW_AUTOSIZE );
 	imshow( "Contours", drawing );
+#ifdef EXE
+	if( waitKey (30) >= 0) return;
+#endif
 }
 
 
