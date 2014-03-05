@@ -12,6 +12,8 @@ public var trotMaxAnimationSpeed : float = 6.0;//1.0;
 public var runMaxAnimationSpeed : float = 6.0;//1.0;
 public var jumpAnimationSpeed : float = 6.9;//1.15;
 public var landAnimationSpeed : float = 6.0;//1.0;
+public var walkaudiosource:AudioSource;
+public var walkaudioclip:AudioClip;
 
 private var _animation : Animation;
 
@@ -22,7 +24,10 @@ enum CharacterState {
 	Running = 3,
 	Jumping = 4,
 }
-
+private var isIdle : boolean = true;
+private var isWalk: boolean = false;
+private var isRun: boolean = false;
+private var isJump:boolean = false;
 private var _characterState : CharacterState;
 
 // The speed when walking
@@ -94,9 +99,11 @@ private var groundNormal = Vector3.up;
 
 function Awake ()
 {
-	moveDirection = transform.TransformDirection(Vector3.forward);
-	
+	walkaudiosource = gameObject.AddComponent("AudioSource");
+	walkaudiosource.clip = walkaudioclip;	
+	moveDirection = transform.TransformDirection(Vector3.forward);	
 	_animation = GetComponent(Animation);
+	
 	if(!_animation)
 		Debug.Log("The character you would like to control doesn't have animations. Moving her might look weird.");
 	
@@ -196,7 +203,7 @@ function UpdateSmoothedMovementDirection ()
 		if (Input.GetButton("Sprint"))
 		{
 			targetSpeed *= runSpeed;
-			_characterState = CharacterState.Running;
+			_characterState = CharacterState.Running;;
 		}
 		else if (Time.time - trotAfterSeconds > walkTimeStart)
 		{
@@ -312,7 +319,7 @@ function Update() {
 	{
 		lastJumpButtonTime = Time.time;
 	}
-
+	
 	UpdateSmoothedMovementDirection();
 	
 	// Apply gravity
@@ -346,6 +353,7 @@ function Update() {
 	
 	// ANIMATION sector
 	if(_animation) {
+		//Debug.Log("state: " + _characterState);
 		if(_characterState == CharacterState.Jumping) 
 		{
 			if(!jumpingReachedApex) {
@@ -357,30 +365,38 @@ function Update() {
 				_animation[jumpPoseAnimation.name].wrapMode = WrapMode.ClampForever;
 				_animation.CrossFade(jumpPoseAnimation.name);				
 			}
+
 		} 
 		else 
 		{
 			if(controller.velocity.sqrMagnitude < 0.1) {
 				_animation.CrossFade(idleAnimation.name);
+				
 			}
 			else 
 			{
 				if(_characterState == CharacterState.Running) {
 					_animation[runAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0, runMaxAnimationSpeed);
-					_animation.CrossFade(runAnimation.name);	
+					_animation.CrossFade(runAnimation.name);
+					
 				}
 				else if(_characterState == CharacterState.Trotting) {
 					_animation[walkAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0, trotMaxAnimationSpeed);
 					_animation.CrossFade(walkAnimation.name);	
+				
 				}
 				else if(_characterState == CharacterState.Walking) {
 					_animation[walkAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0, walkMaxAnimationSpeed);
-					_animation.CrossFade(walkAnimation.name);	
+					_animation.CrossFade(walkAnimation.name);					
+//					_animation.audio = walkaudiosource;
+//					_animation.audio.Play();					
 				}
 				
 			}
 		}
 	}
+	
+	
 	// ANIMATION sector
 	
 	// Set rotation to the move direction

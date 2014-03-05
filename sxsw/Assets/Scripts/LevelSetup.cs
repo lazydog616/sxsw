@@ -19,12 +19,18 @@ public class LevelSetup : MonoBehaviour {
 	public Camera mainCam;
 	public Transform player;
 	float levelDepth;
-	
+
 	[DllImport("ShapeDetectionUnity")]
 	public static extern int detectShape(float minRadius, float maxRadius, int threshold, float[] objPosX, float[] objPosY, float[] objHeight, float[] objWidth, float[] boundingBox); 
 
+
+	public AudioSource scanAs;
+	public AudioClip sacnClip;
+
 	// Use this for initialization
 	void Start () {
+		scanAs = (AudioSource)gameObject.AddComponent<AudioSource>();
+		scanAs.clip = sacnClip;
 		objPosX = new float[100];
 		objPosY = new float[100];
 		objHeight = new float[100];
@@ -49,6 +55,7 @@ public class LevelSetup : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey("c"))
 		{
+			scanAs.Play();
 			int sizeNum = detectShape(minRadius, maxRadius, threshold, objPosX, objPosY, objHeight, objWidth, boundingBox);
 
 			for(int i = 0; i < 4; i++)

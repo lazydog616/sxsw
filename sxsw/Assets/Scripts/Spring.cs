@@ -3,11 +3,14 @@ using System.Collections;
 
 public class Spring : MonoBehaviour {
 
-
+	public AudioSource spas;
+	public AudioClip spclip;
 	bool collide_with_player = false;
 	Vector3 start_pos;
 	// Use this for initialization
 	void Start () {
+		spas = (AudioSource)gameObject.AddComponent<AudioSource> ();
+		spas.clip = spclip;
 		start_pos = gameObject.transform.position;
 	}
 	
@@ -25,7 +28,17 @@ public class Spring : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider){
+
 		if (collider.tag == "Player")
+		{
+			spas.Play ();
 			gameObject.transform.position -= Vector3.up * 2;
+		}
 	}
+//	void OnCollisionEnter(Collision collision){
+//		Debug.Log (collision.collider.name);
+//		if (collision.collider.tag == "Player")
+//						Debug.Log ("abc");
+//			gameObject.transform.position -= Vector3.up * 2;
+//	}
 }
