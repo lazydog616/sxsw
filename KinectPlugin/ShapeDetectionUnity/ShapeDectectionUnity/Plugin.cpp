@@ -12,7 +12,7 @@ extern "C"
 {
 	static CColorBasics colorKinect;
 	int EXPORT_API detectShape(float minRadius, float maxRadius, int threshold, 
-		float* objPosX, float* objPosY, float* objHeight, float* objWidth, float* boundingBox)
+		float* objPosX, float* objPosY, float* objHeight, float* objWidth, float* boundingBox, float* objHue)
 	{
 		colorKinect.maxRadius = maxRadius;
 		colorKinect.minRadius = minRadius;
@@ -25,7 +25,7 @@ extern "C"
 			if ( WAIT_OBJECT_0 == WaitForSingleObject(colorKinect.m_hNextColorFrameEvent, 0) )
 			{
 				colorKinect.ProcessColor();
-				colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum, boundingBox);
+				colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum, boundingBox, objHue);
 				break;
 			}
 		}

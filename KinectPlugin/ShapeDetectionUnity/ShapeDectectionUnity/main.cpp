@@ -8,6 +8,7 @@ int main()
 	float* objPosY = new float[100];
 	float* objHeight = new float[100];
 	float* objWidth = new float[100];
+	float* objHue = new float[100];
 	float* boudingBox = new float[4];
 
 	for(int i = 0;i < 100; i++)
@@ -32,7 +33,7 @@ int main()
 		if ( WAIT_OBJECT_0 == WaitForSingleObject(colorKinect.m_hNextColorFrameEvent, 0) )
 		{
 			colorKinect.ProcessColor();			
-			colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum, boudingBox);
+			colorKinect.ShapeBoundingbox(objPosX, objPosY, objHeight, objWidth, shapeNum, boudingBox, objHue);
 			break;
 		}
 	}

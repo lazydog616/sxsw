@@ -347,7 +347,7 @@ void CColorBasics::ProcessColorDepth()
 }
 
 RNG rng(12345);
-void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum, float* boundingBox)
+void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum, float* boundingBox, float* objHue)
 {
 	//int thresh = 80;
 	int max_thresh = 255;
@@ -411,7 +411,29 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 
 			//int colorIndex = center[i].x * img->width + center[i].y;
 			//img[colorIndex] = 20;
+			
+
+			//Find the color of the polygon(currently only bounding box) created by the contour
+			Mat img_roi = Mat(src, boundRect[i]);
+			Scalar avgPixelIntensity = mean(img_roi);
+			Scalar color = avgPixelIntensity;
+			//Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+
+			//Potentially a more accurate way - find the average hue
+			Mat img_hsv;
+			//convert from rgb to hsv
+			cvtColor(img_roi, img_hsv, CV_BGR2HSV);
+			Mat channels[3];
+			//split into channels of h, s, v
+			split(img_hsv, channels);
+			Scalar avghue = mean(channels[0]);
+			objHue[shapeNum] = avghue[0];
 			shapeNum++;
+
+			//Convert from hsv to rgb, using avghue, max saturation and value
+			Scalar maxhsv = Scalar(avghue[0], 255, 255, 0);
+			Scalar huecolor;
+//			cvtColor(maxhsv, huecolor, CV_HSV2BGR);
 
 			//Find the color of the polygon(currently only bounding box) created by the contour
 			Mat img_roi = Mat(src, boundRect[i]);
