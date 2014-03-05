@@ -9,19 +9,24 @@ public class LevelSetup : MonoBehaviour {
 
 	float minRadius = 20;
 	float maxRadius = 140;
-	int threshold = 180; //range 0-255
+	int threshold = 150; //range 0-255
 	float[] objPosX;
 	float[] objPosY;
 	float[] objHeight;
 	float[] objWidth;
 	float[] boundingBox;
+	float[] objBGR;
 
 	public Camera mainCam;
 	public Transform player;
+
+	public GameObject basic_platform;
+	public GameObject sliding_platform;
+	public GameObject spring_platform;
 	float levelDepth;
 
 	[DllImport("ShapeDetectionUnity")]
-	public static extern int detectShape(float minRadius, float maxRadius, int threshold, float[] objPosX, float[] objPosY, float[] objHeight, float[] objWidth, float[] boundingBox); 
+	public static extern int detectShape(float minRadius, float maxRadius, int threshold, float[] objPosX, float[] objPosY, float[] objHeight, float[] objWidth, float[] boundingBox, float[] objBGR, bool debugging); 
 
 
 	public AudioSource scanAs;
@@ -35,11 +40,13 @@ public class LevelSetup : MonoBehaviour {
 		objPosY = new float[100];
 		objHeight = new float[100];
 		objWidth = new float[100];
+		objBGR = new float[100];
 		boundingBox = new float[4];
+
 		
 		for(int i = 0; i < 100; i++)
 		{
-			objPosX[i] = objPosY[i] = objHeight[i] = objWidth[i] = 0;
+			objPosX[i] = objPosY[i] = objHeight[i] = objWidth[i] = objBGR[i] = 0;
 		}
 		boundingBox[0] = 0;
 		boundingBox[1] = 0;
@@ -53,10 +60,10 @@ public class LevelSetup : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey("c"))
+		if(Input.GetButtonDown("scan"))
 		{
 			scanAs.Play();
-			int sizeNum = detectShape(minRadius, maxRadius, threshold, objPosX, objPosY, objHeight, objWidth, boundingBox);
+			int sizeNum = detectShape(minRadius, maxRadius, threshold, objPosX, objPosY, objHeight, objWidth, boundingBox, objBGR, false);
 
 			for(int i = 0; i < 4; i++)
 			{
@@ -65,9 +72,23 @@ public class LevelSetup : MonoBehaviour {
 
 			for(int i = 0; i < sizeNum; i++)
 			{
+				GameObject newPlatform;
+
 				print ("objWidth: " + objWidth[i]);
 				print ("objHeight: " + objHeight[i]);
-				GameObject newPlatform = GameObject.CreatePrimitive(PrimitiveType.Cube) ;
+				print ("objHue: " + objBGR[3*i+2] + ", " + objBGR[3*i+1] + ", " + objBGR[3*i]);
+
+				float primeValue = Mathf.Max (objBGR[3*i+2], Mathf.Max(objBGR[3*i+1], objBGR[3*i]));
+
+				if(objBGR[3*i+2] == primeValue)
+					newPlatform = Instantiate(basic_platform) as GameObject;
+				else if(objBGR[3*i+1] == primeValue)
+					newPlatform = Instantiate(sliding_platform) as GameObject;
+				else 
+					newPlatform = Instantiate(spring_platform) as GameObject;
+
+				//GameObject newPlatform = GameObject.CreatePrimitive(PrimitiveType.Cube);
+				//newPlatform.renderer.material.color = new Color(objHue[3*i+2]/255, objHue[3*i+1]/255, objHue[3*i]/255);
 				Vector3 screenPosition = new Vector3((boundingBox[2] - objPosX[i]) / (boundingBox[2] - boundingBox[0]) * Screen.currentResolution.width, 
 				                                     Screen.currentResolution.height - (objPosY[i] - boundingBox[1]) / (boundingBox[3] - boundingBox[1]) * Screen.currentResolution.height, 
 				                                     levelDepth); 

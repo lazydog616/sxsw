@@ -97,6 +97,8 @@ private var isControllable = true;
 
 private var groundNormal = Vector3.up;
 
+private var lastPlatform;
+
 function Awake ()
 {
 	walkaudiosource = gameObject.AddComponent("AudioSource");
@@ -435,7 +437,12 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 //	if (hit.moveDirection.y > 0.01) 
 //		return;
 	if (hit.moveDirection.y < 0) 
+	{
 		groundNormal = hit.normal;
+		transform.parent = hit.gameObject.transform;
+		lastPlatform = hit.gameObject;
+	}
+		
 }
 
 function GetSpeed () {
