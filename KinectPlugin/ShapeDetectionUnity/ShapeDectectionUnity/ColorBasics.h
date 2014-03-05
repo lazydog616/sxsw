@@ -10,6 +10,8 @@
 //#include "resource.h"
 #include "NuiApi.h"
 
+#define EXE
+
 //#define DEPTHDISPLAY
 /// Function header
 
@@ -84,5 +86,5 @@ public:
 
 	void					ProcessColorDepth();
 
-	void					ShapeBoundingbox(float*, float*, float*, float*, int&, float*);
+	void					ShapeBoundingbox(float*, float*, float*, float*, int&, float*, float*);
 };

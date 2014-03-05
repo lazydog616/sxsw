@@ -181,10 +181,9 @@ void CColorBasics::ProcessColor()
 
     // Attempt to get the color frame
     hr = m_pNuiSensor->NuiImageStreamGetNextFrame(m_pColorStreamHandle, 0, &imageFrame);
-    while (FAILED(hr))
-    {
-		hr = m_pNuiSensor->NuiImageStreamGetNextFrame(m_pColorStreamHandle, 0, &imageFrame);
-        //return;
+    if(FAILED(hr))
+    {		
+        return;
     }
 
 	INuiFrameTexture * pTexture = imageFrame.pFrameTexture;
@@ -215,7 +214,9 @@ void CColorBasics::ProcessColor()
 
 		namedWindow( "Color", CV_WINDOW_AUTOSIZE );
 		imshow( "Color", m);
-
+#ifdef EXE
+		if( waitKey (30) >= 0) return;
+#endif
         // Draw the data with Direct2D
 		//#ifndef DEPTHDISPLAY
 		//        m_pDrawColor->Draw(static_cast<BYTE *>(LockedRect.pBits), LockedRect.size);
@@ -346,7 +347,7 @@ void CColorBasics::ProcessColorDepth()
 }
 
 RNG rng(12345);
-void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum, float* boundingBox)
+void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHeight, float* objWidth, int& shapeNum, float* boundingBox, float* objHue)
 {
 	//int thresh = 80;
 	int max_thresh = 255;
@@ -410,9 +411,30 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 
 			//int colorIndex = center[i].x * img->width + center[i].y;
 			//img[colorIndex] = 20;
+			
+
+			//Find the color of the polygon(currently only bounding box) created by the contour
+			Mat img_roi = Mat(src, boundRect[i]);
+			Scalar avgPixelIntensity = mean(img_roi);
+			Scalar color = avgPixelIntensity;
+			//Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+
+			//Potentially a more accurate way - find the average hue
+			Mat img_hsv;
+			//convert from rgb to hsv
+			cvtColor(img_roi, img_hsv, CV_BGR2HSV);
+			Mat channels[3];
+			//split into channels of h, s, v
+			split(img_hsv, channels);
+			Scalar avghue = mean(channels[0]);
+			objHue[shapeNum] = avghue[0];
 			shapeNum++;
 
-			Scalar color = Scalar( rng.uniform(0, 255), rng.uniform(0,255), rng.uniform(0,255) );
+			//Convert from hsv to rgb, using avghue, max saturation and value
+			Scalar maxhsv = Scalar(avghue[0], 255, 255, 0);
+			Scalar huecolor;
+//			cvtColor(maxhsv, huecolor, CV_HSV2BGR);
+
 			drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
 			rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
 			circle( drawing, center[i], (int)radius[i], color, 2, 8, 0 );
@@ -422,6 +444,9 @@ void CColorBasics::ShapeBoundingbox(float* objPosX, float* objPosY, float* objHe
 	//Show in a window
 	namedWindow( "Contours", CV_WINDOW_AUTOSIZE );
 	imshow( "Contours", drawing );
+#ifdef EXE
+	if( waitKey (30) >= 0) return;
+#endif
 }
 
 
