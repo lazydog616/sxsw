@@ -5,7 +5,7 @@ public class sliding : MonoBehaviour {
 
 	public Vector3 positionA;
 	public Vector3 positionB;
-	public float period;
+	public float period = 3;
 
 	private bool movingAtoB = true;
 	private float periodTimer = 0;
@@ -30,5 +30,11 @@ public class sliding : MonoBehaviour {
 			periodTimer = 0;
 			movingAtoB = !movingAtoB;
 		}
+	}
+
+	Vector3 getVelocity(){
+
+		return movingAtoB? (positionB - positionA) / period : (positionA - positionB) / period;
+
 	}
 }

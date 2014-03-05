@@ -9,6 +9,8 @@ Project("{323BBE7C-6D12-0543-98DA-5B9D867907A9}") = "sxsw", "Assembly-CSharp-Edi
 EndProject
 Project("{323BBE7C-6D12-0543-98DA-5B9D867907A9}") = "sxsw", "Assembly-UnityScript-firstpass.unityproj", "{476B0C42-FA5E-B867-C186-9D70B6E5B7C2}"
 EndProject
+Project("{323BBE7C-6D12-0543-98DA-5B9D867907A9}") = "sxsw", "Assembly-UnityScript.unityproj", "{4D3F7619-92AD-B6C0-C9C2-5A319012DFFD}"
+EndProject
 Project("{323BBE7C-6D12-0543-98DA-5B9D867907A9}") = "sxsw", "Assembly-UnityScript-Editor.unityproj", "{C15A3082-1F91-0411-E167-7EF237674E08}"
 EndProject
 Global
@@ -33,6 +35,10 @@ Global
 		{476B0C42-FA5E-B867-C186-9D70B6E5B7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{476B0C42-FA5E-B867-C186-9D70B6E5B7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{476B0C42-FA5E-B867-C186-9D70B6E5B7C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3F7619-92AD-B6C0-C9C2-5A319012DFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3F7619-92AD-B6C0-C9C2-5A319012DFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3F7619-92AD-B6C0-C9C2-5A319012DFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3F7619-92AD-B6C0-C9C2-5A319012DFFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C15A3082-1F91-0411-E167-7EF237674E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C15A3082-1F91-0411-E167-7EF237674E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C15A3082-1F91-0411-E167-7EF237674E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,7 +47,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																									GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
