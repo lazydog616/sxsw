@@ -35,6 +35,15 @@ public class Spring : MonoBehaviour {
 			gameObject.transform.position -= Vector3.up * 2;
 		}
 	}
+
+//	void OnCollisionEnter(UnityEngine.Collision collision)
+//	{
+//		if (collision.collider.tag == "Player")
+//		{
+//			spas.Play ();
+//			gameObject.transform.position -= Vector3.up * 2;
+//		}
+//	}
 //	void OnCollisionEnter(Collision collision){
 //		Debug.Log (collision.collider.name);
 //		if (collision.collider.tag == "Player")

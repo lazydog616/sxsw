@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ThirdPersonController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Spring.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelSetup.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\sliding.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\sliding.js" Line="16" Column="21" />
-      <File FileName="Assets\Scripts\ThirdPersonController.js" Line="469" Column="24" />
+      <File FileName="Assets\Scripts\LevelSetup.cs" Line="61" Column="1" />
+      <File FileName="Assets\Scripts\sliding.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ThirdPersonController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Collision.cs" Line="37" Column="19" />
+      <File FileName="Assets\Scripts\Spring.cs" Line="11" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
